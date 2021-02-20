@@ -1,0 +1,27 @@
+@for $i from 1 through 100 {
+  .fs-#{$i} {
+    font-size: $i * 1px;
+  }
+
+  @include media-breakpoint-up(md) {
+    .fs-md-#{$i} {
+      font-size: $i * 1px;
+    }
+  }
+
+  .font-weight-#{$i * 100} {
+    font-weight: $i * 100;
+  }
+
+  .line-height-#{$i} {
+    line-height: $i;
+  }
+}
+
+.text-custom-gray {
+  color: #999;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}

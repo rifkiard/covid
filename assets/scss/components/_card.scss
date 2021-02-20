@@ -1,0 +1,72 @@
+.comparison-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .comparison-card-item {
+    width: calc((100% / 3) - 20px);
+    padding: 30px 20px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    color: $white;
+    position: relative;
+    overflow: hidden;
+
+    * {
+      z-index: 2;
+      position: relative;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      left: -20px;
+      top: -20px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      right: -20px;
+      bottom: -20px;
+    }
+
+    &.bg-warning::before,
+    &.bg-warning::after {
+      background-color: lighten($warning, 5%);
+    }
+
+    &.bg-primary::before,
+    &.bg-primary::after {
+      background-color: lighten($primary, 5%);
+    }
+
+    &.bg-success::before,
+    &.bg-success::after {
+      background-color: lighten($success, 5%);
+    }
+
+    @include media-breakpoint-down(md) {
+      width: calc((100% / 2) - 10px);
+
+      &:nth-child(3) {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+
+      &:not(:nth-child(1)) {
+        margin-top: 20px;
+      }
+    }
+  }
+}
